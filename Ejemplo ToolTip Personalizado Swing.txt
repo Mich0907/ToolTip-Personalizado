@@ -1,0 +1,25 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class BotonSwing {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("ToolTip Personalizado");
+        frame.setSize(300, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        
+        JButton boton = new JButton("Aceptar") {
+            @Override
+            public JToolTip createToolTip() {
+                JToolTip tip = super.createToolTip();
+                tip.setBackground(Color.LIGHT_GRAY);
+                tip.setFont(new Font("Arial", Font.ITALIC, 15));
+                return tip;
+            }
+        };
+        
+        boton.setToolTipText("ToolTip personalizado");
+        frame.add(boton);
+        frame.setVisible(true);
+    }
+}
